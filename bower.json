@@ -1,0 +1,17 @@
+{
+  "name": "dashboard",
+  "homepage": "https://github.com/lightredemption/dashboard",
+  "authors": [
+    "The_Anvil <lightredemption@hotmail.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

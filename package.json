@@ -1,0 +1,19 @@
+{
+  "name": "dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lightredemption/dashboard.git"
+  },
+  "author": "The_Anvil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lightredemption/dashboard/issues"
+  },
+  "homepage": "https://github.com/lightredemption/dashboard#readme"
+}
