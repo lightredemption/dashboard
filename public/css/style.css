@@ -1,6 +1,7 @@
 html, body {
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  color: white; }
   html .block, body .block {
     background-color: black;
     min-height: 10%;
