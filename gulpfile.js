@@ -1,17 +1,31 @@
 'use strict';
 
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var babel = require('gulp-babel');
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const concat = require('gulp-concat');
+const babel = require('gulp-babel');
+
+const paths = {
+  scripts: [
+    `src/app.js`,
+    `src/components/*.js`,
+    `src/controllers/*js`
+  ],
+  styles: [
+    `src/scss/*.scss`
+  ]
+};
 
 gulp.task(`scss`, () => {
-  return gulp.src(`src/scss/*.scss`)
+  return gulp.src(paths.styles)
+  .pipe(concat(`style.css`))
   .pipe(sass.sync().on(`error`, sass.logError))
   .pipe(gulp.dest(`public/css/`));
 });
 
 gulp.task(`js`, () => {
-  return gulp.src([`src/app.js`, `src/components/*.js`, `src/controllers/*.js`])
+  return gulp.src(paths.scripts)
+  .pipe(concat(`app.js`))
   .pipe(babel({
     presets: [`es2015`]
   }))
@@ -19,8 +33,8 @@ gulp.task(`js`, () => {
 });
 
 gulp.task(`watch`, () => {
-  gulp.watch(`src/app.js`, `src/components/*.js`, `src/controllers/*.js`, [`js`]);
-  gulp.watch(`src/scss/*.scss`, [`scss`]);
+  gulp.watch(paths.scripts, [`js`]);
+  gulp.watch(paths.styles, [`scss`]);
 })
 
 gulp.task('default', [`scss`, `js`]);
