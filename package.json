@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/lightredemption/dashboard/issues"
   },
-  "homepage": "https://github.com/lightredemption/dashboard#readme"
+  "homepage": "https://github.com/lightredemption/dashboard#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2"
+  }
 }
