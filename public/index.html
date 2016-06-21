@@ -14,13 +14,13 @@
 
 <body ng-controller="BaseController">
 
-  <div class="row">
+  <div class="row" ng-controller="WeatherController">
     <!-- Weather, Clock & Image Module -->
     <div class="col-xs-12 block weather" ng-include="'../partials/weather.html'">
 
     </div>
     </div
-    <div class="row">
+    <div class="row" ng-controller="SteamController">
       <!-- Steam Module -->
       <div class="col-md-4 col-sm-12 degutter">
         <!-- Steam Profile Module -->
@@ -33,19 +33,22 @@
         </div>
       </div>
       <!-- Music & News Module -->
-      <div class="col-md-8 col-sm-12 degutter">
+      <div class="col-md-8 col-sm-12 degutter" ng-controller="NewsController">
         <!-- News Module -->
         <div class="col-xs-12 block news">
 
         </div>
         <!-- LastFM Track Module -->
-        <div class="col-md-6 col-xs-12 block tracks">
+        <div class="row" ng-controller="MusicController">
+          <div class="col-md-6 col-xs-12 block tracks">
 
-        </div>
-        <!-- LastFM Album Module -->
-        <div class="col-md-6 col-xs-12 block albums">
+          </div>
+          <!-- LastFM Album Module -->
+          <div class="col-md-6 col-xs-12 block albums">
 
+          </div>
         </div>
+
       </div>
     </div>
   </body>

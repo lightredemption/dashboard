@@ -1,0 +1,2 @@
+app.controller(`SteamController`, $scope => {
+});
