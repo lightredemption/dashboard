@@ -7,7 +7,7 @@ const babel = require('gulp-babel');
 
 const paths = {
   scripts: [
-    `src/app.js`,
+    `src/*.js`,
     `src/controllers/*js`
   ],
   styles: [

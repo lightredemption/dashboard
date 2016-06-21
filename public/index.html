@@ -19,37 +19,37 @@
     <div class="col-xs-12 block weather" ng-include="'../partials/weather.html'">
 
     </div>
-    </div
-    <div class="row" ng-controller="SteamController">
-      <!-- Steam Module -->
-      <div class="col-md-4 col-sm-12 degutter">
-        <!-- Steam Profile Module -->
-        <div class="col-xs-12 block profile">
+  </div>
+  <div class="row" ng-controller="SteamController">
+    <!-- Steam Module -->
+    <div class="col-md-4 col-sm-12 degutter">
+      <!-- Steam Profile Module -->
+      <div class="col-xs-12 block profile" ng-include="'../partials/profile.html'">
 
-        </div>
-        <!-- Steam Friend List Module -->
-        <div class="col-xs-12 block friends">
-
-        </div>
       </div>
-      <!-- Music & News Module -->
-      <div class="col-md-8 col-sm-12 degutter" ng-controller="NewsController">
-        <!-- News Module -->
-        <div class="col-xs-12 block news">
-
-        </div>
-        <!-- LastFM Track Module -->
-        <div class="row" ng-controller="MusicController">
-          <div class="col-md-6 col-xs-12 block tracks">
-
-          </div>
-          <!-- LastFM Album Module -->
-          <div class="col-md-6 col-xs-12 block albums">
-
-          </div>
-        </div>
+      <!-- Steam Friend List Module -->
+      <div class="col-xs-12 block friends" ng-include="'../partials/friends.html'">
 
       </div>
     </div>
-  </body>
-  </html>
+    <!-- Music & News Module -->
+    <div class="col-md-8 col-sm-12 degutter" ng-controller="NewsController">
+      <!-- News Module -->
+      <div class="col-xs-12 block news" ng-include="'../partials/news.html'">
+
+      </div>
+      <!-- LastFM Track Module -->
+      <div class="row" ng-controller="MusicController">
+        <div class="col-md-6 col-xs-12 block tracks" ng-include="'../partials/tracks.html'">
+
+        </div>
+        <!-- LastFM Album Module -->
+        <div class="col-md-6 col-xs-12 block albums" ng-include="'../partials/album.html'">
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
