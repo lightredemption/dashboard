@@ -3,7 +3,7 @@ app.controller(`MusicController`, [`Service`, `$scope`, (Service, $scope) => {
   Service
   .getRecentTracks()
   .then(results => {
-    $scope.tracks = results.track
+    $scope.tracks = results.track;
   })
   .catch(err => {
     console.log(err);

@@ -27,7 +27,7 @@ app.factory(`Service`, [
     service.getSteamData = () => {
       return $http({
         method: `GET`,
-        url: `http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${apiSteam}&steamids=${idSteam}`
+        url: `https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${apiSteam}&steamids=${idSteam}`
       })
       .then(response => {
         if (response.status !== 200) {
@@ -41,7 +41,7 @@ app.factory(`Service`, [
     service.getSteamFriends = () => {
       return $http({
         method: `GET`,
-        url: `http://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key=${apiSteam}&steamid=${idSteam}&relationship=friend`
+        url: `https://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key=${apiSteam}&steamid=${idSteam}&relationship=friend`
       })
       .then(response => {
         if (response.status !== 200) {
@@ -55,7 +55,7 @@ app.factory(`Service`, [
     service.getRecentTracks = () => {
       return $http({
         method: `GET`,
-        url: `http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${userFM}&api_key=${apiFM}&format=json`
+        url: `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${userFM}&api_key=${apiFM}&format=json`
       })
       .then(response => {
         if (response.status !== 200) {
@@ -69,7 +69,7 @@ app.factory(`Service`, [
     service.getAlbumChart = () => {
       return $http({
         method: `GET`,
-        url: `http://ws.audioscrobbler.com/2.0/?method=user.getweeklyalbumchart&user=${userFM}&api_key=${apiFM}&format=json`
+        url: `https://ws.audioscrobbler.com/2.0/?method=user.getweeklyalbumchart&user=${userFM}&api_key=${apiFM}&format=json`
       })
       .then(response => {
         if (response.status !== 200) {

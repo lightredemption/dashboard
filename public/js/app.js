@@ -28,7 +28,7 @@ app.factory('Service', ['$http', function ($http) {
   service.getSteamData = function () {
     return $http({
       method: 'GET',
-      url: 'http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=' + apiSteam + '&steamids=' + idSteam
+      url: 'https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=' + apiSteam + '&steamids=' + idSteam
     }).then(function (response) {
       if (response.status !== 200) {
         throw new Error('Failed to get steam profile.');
@@ -41,7 +41,7 @@ app.factory('Service', ['$http', function ($http) {
   service.getSteamFriends = function () {
     return $http({
       method: 'GET',
-      url: 'http://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key=' + apiSteam + '&steamid=' + idSteam + '&relationship=friend'
+      url: 'https://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key=' + apiSteam + '&steamid=' + idSteam + '&relationship=friend'
     }).then(function (response) {
       if (response.status !== 200) {
         throw new Error('Failed to get steam profile.');
@@ -54,7 +54,7 @@ app.factory('Service', ['$http', function ($http) {
   service.getRecentTracks = function () {
     return $http({
       method: 'GET',
-      url: 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=' + userFM + '&api_key=' + apiFM + '&format=json'
+      url: 'https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=' + userFM + '&api_key=' + apiFM + '&format=json'
     }).then(function (response) {
       if (response.status !== 200) {
         throw new Error('Failed to get recent tracks.');
@@ -67,7 +67,7 @@ app.factory('Service', ['$http', function ($http) {
   service.getAlbumChart = function () {
     return $http({
       method: 'GET',
-      url: 'http://ws.audioscrobbler.com/2.0/?method=user.getweeklyalbumchart&user=' + userFM + '&api_key=' + apiFM + '&format=json'
+      url: 'https://ws.audioscrobbler.com/2.0/?method=user.getweeklyalbumchart&user=' + userFM + '&api_key=' + apiFM + '&format=json'
     }).then(function (response) {
       if (response.status !== 200) {
         throw new Error('Failed to get album chart.');
@@ -113,7 +113,7 @@ app.controller('MusicController', ['Service', '$scope', function (Service, $scop
 app.controller('NewsController', ['Service', '$scope', function (Service, $scope) {
 
   Service.getNews().then(function (results) {
-    console.log(results);
+    $scope.news = results;
   }).catch(function (err) {
     console.log(err);
   });
