@@ -1,1 +1,9 @@
-{{ weather }}
+<div id="weather" ng-if="weather">
+  {{ weather.name | uppercase }}
+  {{ weather.weather[0].description }}
+  <img ng-src="http://openweathermap.org/img/w/{{ weather.weather[0].icon }}.png" />
+  {{ weather.main.temp }}&deg;C
+  Humidity: {{ weather.main.humidity }}
+  Wind: {{ weather.wind.speed }}km/hr
+
+</div>

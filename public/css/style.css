@@ -1,13 +1,19 @@
 html, body {
   width: 100%;
-  height: 100%;
-  color: white; }
+  height: 100%; }
   html .block, body .block {
-    background-color: black;
     min-height: 10%;
+    border: 1px solid black;
     overflow: scroll; }
+  html .row, body .row {
+    margin: 0 0 0 0; }
   html .weather, body .weather {
-    height: 40%; }
+    height: 40%;
+    background-image: url(../img/bg.jpg);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-color: #14181b;
+    color: white; }
   html .profile, html .news, html .friends, html .albums, html .tracks, body .profile, body .news, body .friends, body .albums, body .tracks {
     height: 30%; }
   html .degutter, body .degutter {

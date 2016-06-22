@@ -142,6 +142,9 @@ app.controller('WeatherController', ['Service', '$scope', function (Service, $sc
     };
 
     Service.getCurrentWeather($scope.location).then(function (results) {
+      console.log(results);
+      results.main.temp = parseInt(results.main.temp);
+      results.wind.speed = results.wind.speed * 3600 / 1000;
       $scope.weather = results;
     }).catch(function (err) {
       console.log(err);
