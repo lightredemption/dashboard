@@ -18,3 +18,8 @@ html, body {
     height: 30%; }
   html .degutter, body .degutter {
     padding: 0 0 0 0; }
+
+#weather img {
+  -webkit-filter: grayscale(100%);
+  /* Chrome, Safari, Opera */
+  filter: grayscale(100%); }
