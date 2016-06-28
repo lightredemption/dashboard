@@ -1,20 +1,39 @@
-app.controller(`WeatherController`, [`Service`, `$scope`, (Service, $scope) => {
+app.controller(`WeatherController`, [`Service`, `$scope`, `$interval`, (Service, $scope, $interval) => {
+
+  $scope.clock = Date.now();
+
+  var tick = () => {
+    $scope.clock = Date.now();
+  }
+  tick();
+  $interval(tick, 1000);
+
   navigator.geolocation.getCurrentPosition((location) => {
-    $scope.location = {
-      lat: location.coords.latitude,
-      long: location.coords.longitude
-    };
 
     Service
-      .getCurrentWeather($scope.location)
-      .then(results => {
-        console.log(results);
-        results.main.temp = parseInt(results.main.temp);
-        results.wind.speed = results.wind.speed * 3600 / 1000;
-        $scope.weather = results;
-      })
-      .catch(err => {
-        console.log(err);
-      })
+    .getLocation(location.coords.latitude, location.coords.longitude)
+    .then(data => {
+      $scope.getWeather(data.results[3].address_components[0].short_name);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+
+    $scope.getWeather = (zip) => {
+      $.simpleWeather({
+        location: zip,
+        unit: 'c',
+        success: weather => {
+          console.log(weather);
+          $scope.weather = weather;
+          $scope.$apply();
+        },
+        error: err => {
+          console.log(err);
+        }
+      });
+    }
+
   });
+
 }]);

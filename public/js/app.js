@@ -5,49 +5,23 @@ var app = angular.module('dashboard', []);
 app.factory('Service', ['$http', function ($http) {
   var service = {};
 
-  var apiOpenWeatherMap = '3e9bf4b44d91035d2b502d445af152ce';
   var apiSteam = 'BF5F20D59B3A29772A03EDD9470780C5';
+  var apiWeather = 'e0d74cec0decd6cf340248d9468070f1';
   var apiFM = '6e945ef718dcf6eaabef5ec3e448f358';
   var apiNews = 'd59c3a96787a47fbac3c5883285a660e';
   var idSteam = '76561198046827360';
   var userFM = 'cynthiacrescent';
 
-  service.getCurrentWeather = function (location) {
+  service.getLocation = function (lat, lon) {
     return $http({
       method: 'GET',
-      url: 'http://api.openweathermap.org/data/2.5/weather?lat=' + location.lat + '&lon=' + location.long + '&units=metric&APPID=' + apiOpenWeatherMap
+      url: 'http://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lon
     }).then(function (response) {
       if (response.status !== 200) {
-        throw new Error('Failed to get weather data.');
+        throw new Error('Failed to get location.');
       }
 
       return response.data;
-    });
-  };
-
-  service.getSteamData = function () {
-    return $http({
-      method: 'GET',
-      url: 'https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=' + apiSteam + '&steamids=' + idSteam
-    }).then(function (response) {
-      if (response.status !== 200) {
-        throw new Error('Failed to get steam profile.');
-      }
-
-      return response.data.response.players[0];
-    });
-  };
-
-  service.getSteamFriends = function () {
-    return $http({
-      method: 'GET',
-      url: 'https://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key=' + apiSteam + '&steamid=' + idSteam + '&relationship=friend'
-    }).then(function (response) {
-      if (response.status !== 200) {
-        throw new Error('Failed to get steam profile.');
-      }
-
-      return response.data.friendslist.friends;
     });
   };
 
@@ -93,7 +67,9 @@ app.factory('Service', ['$http', function ($http) {
   return service;
 }]);
 
-app.controller('BaseController', function ($scope) {});
+app.controller('ActionController', ['Service', '$scope', function (Service, $scope) {}]);
+
+app.controller('BaseController', ['Service', '$scope', function (Service, $scope) {}]);
 
 app.controller('MusicController', ['Service', '$scope', function (Service, $scope) {
 
@@ -113,41 +89,48 @@ app.controller('MusicController', ['Service', '$scope', function (Service, $scop
 app.controller('NewsController', ['Service', '$scope', function (Service, $scope) {
 
   Service.getNews().then(function (results) {
+    console.log(results);
     $scope.news = results;
   }).catch(function (err) {
     console.log(err);
   });
 }]);
 
-app.controller('SteamController', ['Service', '$scope', function (Service, $scope) {
+app.controller('SearchController', ['Service', '$scope', function (Service, $scope) {}]);
 
-  Service.getSteamFriends().then(function (results) {
-    $scope.friends = results;
-  }).catch(function (err) {
-    console.log(err);
-  });
+app.controller('SteamController', ['Service', '$scope', function (Service, $scope) {}]);
 
-  Service.getSteamData().then(function (results) {
-    $scope.profile = results;
-  }).catch(function (err) {
-    console.log(err);
-  });
-}]);
+app.controller('WeatherController', ['Service', '$scope', '$interval', function (Service, $scope, $interval) {
 
-app.controller('WeatherController', ['Service', '$scope', function (Service, $scope) {
+  $scope.clock = Date.now();
+
+  var tick = function tick() {
+    $scope.clock = Date.now();
+  };
+  tick();
+  $interval(tick, 1000);
+
   navigator.geolocation.getCurrentPosition(function (location) {
-    $scope.location = {
-      lat: location.coords.latitude,
-      long: location.coords.longitude
-    };
 
-    Service.getCurrentWeather($scope.location).then(function (results) {
-      console.log(results);
-      results.main.temp = parseInt(results.main.temp);
-      results.wind.speed = results.wind.speed * 3600 / 1000;
-      $scope.weather = results;
+    Service.getLocation(location.coords.latitude, location.coords.longitude).then(function (data) {
+      $scope.getWeather(data.results[3].address_components[0].short_name);
     }).catch(function (err) {
       console.log(err);
     });
+
+    $scope.getWeather = function (zip) {
+      $.simpleWeather({
+        location: zip,
+        unit: 'c',
+        success: function success(weather) {
+          console.log(weather);
+          $scope.weather = weather;
+          $scope.$apply();
+        },
+        error: function error(err) {
+          console.log(err);
+        }
+      });
+    };
   });
 }]);

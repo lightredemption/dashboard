@@ -5,6 +5,8 @@ html, body {
     min-height: 10%;
     border: 1px solid black;
     overflow: scroll; }
+  html .module, body .module {
+    padding: 1em 1em 1em 1em; }
   html .row, body .row {
     margin: 0 0 0 0; }
   html .weather, body .weather {
@@ -14,12 +16,10 @@ html, body {
     background-repeat: no-repeat;
     background-color: #14181b;
     color: white; }
-  html .profile, html .news, html .friends, html .albums, html .tracks, body .profile, body .news, body .friends, body .albums, body .tracks {
-    height: 30%; }
-  html .degutter, body .degutter {
-    padding: 0 0 0 0; }
 
-#weather img {
-  -webkit-filter: grayscale(100%);
-  /* Chrome, Safari, Opera */
-  filter: grayscale(100%); }
+#weather-module {
+  height: 33%; }
+  #weather-module img {
+    -webkit-filter: grayscale(100%);
+    /* Chrome, Safari, Opera */
+    filter: grayscale(100%); }

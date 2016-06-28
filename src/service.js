@@ -3,53 +3,25 @@ app.factory(`Service`, [
   ($http) => {
     let service = {};
 
-    const apiOpenWeatherMap = `3e9bf4b44d91035d2b502d445af152ce`;
     const apiSteam = `BF5F20D59B3A29772A03EDD9470780C5`;
+    const apiWeather = `e0d74cec0decd6cf340248d9468070f1`;
     const apiFM = `6e945ef718dcf6eaabef5ec3e448f358`;
     const apiNews = `d59c3a96787a47fbac3c5883285a660e`;
     const idSteam = `76561198046827360`;
     const userFM = `cynthiacrescent`;
 
-    service.getCurrentWeather = (location) => {
+    service.getLocation = (lat, lon) => {
       return $http({
         method: `GET`,
-        url: `http://api.openweathermap.org/data/2.5/weather?lat=${location.lat}&lon=${location.long}&units=metric&APPID=${apiOpenWeatherMap}`
+        url: `http://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}`
       })
       .then(response => {
         if (response.status !== 200) {
-          throw new Error(`Failed to get weather data.`);
+          throw new Error(`Failed to get location.`);
         }
 
         return response.data;
-      });
-    };
-
-    service.getSteamData = () => {
-      return $http({
-        method: `GET`,
-        url: `https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${apiSteam}&steamids=${idSteam}`
       })
-      .then(response => {
-        if (response.status !== 200) {
-          throw new Error(`Failed to get steam profile.`);
-        }
-
-        return response.data.response.players[0];
-      });
-    };
-
-    service.getSteamFriends = () => {
-      return $http({
-        method: `GET`,
-        url: `https://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key=${apiSteam}&steamid=${idSteam}&relationship=friend`
-      })
-      .then(response => {
-        if (response.status !== 200) {
-          throw new Error(`Failed to get steam profile.`);
-        }
-
-        return response.data.friendslist.friends;
-      });
     };
 
     service.getRecentTracks = () => {

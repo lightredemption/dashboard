@@ -8,6 +8,9 @@ html, body {
     border: 1px solid black;
     overflow: scroll;
   }
+  .module {
+    padding: 1em 1em 1em 1em;
+  }
   .row {
     margin: 0 0 0 0;
   }
@@ -18,11 +21,5 @@ html, body {
     background-repeat: no-repeat;
     background-color: $cl-dark;
     color: white;
-  }
-  .profile, .news, .friends, .albums, .tracks {
-    height: 30%;
-  }
-  .degutter {
-    padding: 0 0 0 0;
   }
 }

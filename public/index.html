@@ -1,55 +1,63 @@
 <html ng-app="dashboard" lang="en-us">
 <head>
   <meta charset="utf-8" />
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
   <link href="css/style.css" rel="stylesheet" />
   <title>Dashboard</title>
   <!-- Vendor libraries -->
-  <script   src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
   <!-- Application Files -->
   <script src="js/app.js"></script>
 </head>
 
-<body ng-controller="BaseController">
+<body ng-controller="BaseController" class="pure-g">
 
-  <div class="row" ng-controller="WeatherController">
-    <!-- Weather, Clock & Image Module -->
-    <div class="col-xs-12 block weather" ng-include="'../partials/weather.html'">
+  {{weather}}
+
+  <div class="pure-u-1-4" id="left-panel" ng-controller="MusicController">
+
+    <div class="pure-u-1 block" id="welcome-module" ng-include="'../partials/welcome.html'">
 
     </div>
+
+    <div class="pure-u-1 block" id="music-1-module" ng-include="'../partials/tracks.html'">
+
+    </div>
+
+    <div class="pure-u-1 block" id="music-2-module" ng-include="'../partials/albums.html'">
+
+    </div>
+
   </div>
-  <div class="row" ng-controller="SteamController">
-    <!-- Steam Module -->
-    <div class="col-md-4 col-sm-12 degutter">
-      <!-- Steam Profile Module -->
-      <div class="col-xs-12 block profile" ng-include="'../partials/profile.html'">
 
-      </div>
-      <!-- Steam Friend List Module -->
-      <div class="col-xs-12 block friends" ng-include="'../partials/friends.html'">
+  <div class="pure-u-1-2">
 
-      </div>
+    <div class="pure-u-1 block" id="weather-module" ng-controller="WeatherController" ng-include="'../partials/weather.html'">\
     </div>
-    <!-- Music & News Module -->
-    <div class="col-md-8 col-sm-12 degutter" ng-controller="NewsController">
-      <!-- News Module -->
-      <div class="col-xs-12 block news" ng-include="'../partials/news.html'">
 
-      </div>
-      <!-- LastFM Track Module -->
-      <div class="row" ng-controller="MusicController">
-        <div class="col-md-6 col-xs-12 block tracks" ng-include="'../partials/tracks.html'">
-
-        </div>
-        <!-- LastFM Album Module -->
-        <div class="col-md-6 col-xs-12 block albums" ng-include="'../partials/album.html'">
-
-        </div>
-      </div>
+    <div class="pure-u-1 block" id="search-module" ng-controller="SearchController" ng-include="'../partials/search.html'">
 
     </div>
+
+    <div class="pure-u-1 block" id="links-module" ng-include="'../partials/links.html'">
+
+    </div>
+
   </div>
+
+  <div class="pure-u-1-4">
+
+    <div class="pure-u-1 block" id="action-module" ng-controller="ActionController" ng-include="'../partials/action.html'">
+
+    </div>
+
+    <div class="pure-u-1 block" id="news-module" ng-controller="NewsController" ng-include="'../partials/news.html'">
+
+    </div>
+
+  </div>
+
 </body>
 </html>
