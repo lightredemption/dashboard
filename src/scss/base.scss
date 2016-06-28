@@ -5,21 +5,16 @@ html, body {
   height: 100%;
   .block {
     min-height: 10%;
-    border: 1px solid black;
     overflow: scroll;
   }
   .module {
     padding: 1em 1em 1em 1em;
   }
+  .inner-module {
+    border: 1px solid black;
+    padding: 5px 5px 5px 5px;
+  }
   .row {
     margin: 0 0 0 0;
-  }
-  .weather {
-    height: 40%;
-    background-image: url(../img/bg.jpg);
-    background-position: right;
-    background-repeat: no-repeat;
-    background-color: $cl-dark;
-    color: white;
   }
 }

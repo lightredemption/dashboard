@@ -1,1 +1,9 @@
-track
+<div class="module">
+  <div class="inner-module">
+    <div ng-if="tracks">
+      <div ng-repeat="track in tracks">
+        {{ track.artist.#text }} {{ track.name }}
+      </div>
+    </div>
+  </div>
+</div>

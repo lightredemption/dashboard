@@ -3,23 +3,22 @@ html, body {
   height: 100%; }
   html .block, body .block {
     min-height: 10%;
-    border: 1px solid black;
     overflow: scroll; }
   html .module, body .module {
     padding: 1em 1em 1em 1em; }
+  html .inner-module, body .inner-module {
+    border: 1px solid black;
+    padding: 5px 5px 5px 5px; }
   html .row, body .row {
     margin: 0 0 0 0; }
-  html .weather, body .weather {
-    height: 40%;
-    background-image: url(../img/bg.jpg);
-    background-position: right;
-    background-repeat: no-repeat;
-    background-color: #14181b;
-    color: white; }
 
-#weather-module {
-  height: 33%; }
-  #weather-module img {
-    -webkit-filter: grayscale(100%);
-    /* Chrome, Safari, Opera */
-    filter: grayscale(100%); }
+#music-1-module .inner-module {
+  height: 25%; }
+
+#weather-module img {
+  -webkit-filter: grayscale(100%);
+  /* Chrome, Safari, Opera */
+  filter: grayscale(100%); }
+
+#weather-module .inner-module {
+  height: 25%; }

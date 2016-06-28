@@ -1,7 +1,9 @@
 #weather-module {
-  height: 33%;
   img {
     -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
     filter: grayscale(100%);
+  }
+  .inner-module {
+    height: 25%;
   }
 }
