@@ -1,9 +1,9 @@
-#weather-module {
-  img {
-    -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
-    filter: grayscale(100%);
-  }
-  .inner-module {
-    height: 25%;
-  }
+#weather-1-module {
+  height: 20vh;
+  overflow: scroll;
+}
+
+#weather-2-module {
+  height: 25vh;
+  overflow: scroll;
 }

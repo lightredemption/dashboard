@@ -67,11 +67,7 @@ app.factory('Service', ['$http', function ($http) {
   return service;
 }]);
 
-app.controller('ActionController', ['Service', '$scope', function (Service, $scope) {}]);
-
-app.controller('BaseController', ['Service', '$scope', function (Service, $scope) {}]);
-
-app.controller('MusicController', ['Service', '$scope', function (Service, $scope) {
+app.controller('BaseController', ['Service', '$scope', '$interval', function (Service, $scope, $interval) {
 
   Service.getRecentTracks().then(function (results) {
     $scope.tracks = results.track;
@@ -84,9 +80,6 @@ app.controller('MusicController', ['Service', '$scope', function (Service, $scop
   }).catch(function (err) {
     console.log(err);
   });
-}]);
-
-app.controller('NewsController', ['Service', '$scope', function (Service, $scope) {
 
   Service.getNews().then(function (results) {
     console.log(results);
@@ -94,13 +87,6 @@ app.controller('NewsController', ['Service', '$scope', function (Service, $scope
   }).catch(function (err) {
     console.log(err);
   });
-}]);
-
-app.controller('SearchController', ['Service', '$scope', function (Service, $scope) {}]);
-
-app.controller('SteamController', ['Service', '$scope', function (Service, $scope) {}]);
-
-app.controller('WeatherController', ['Service', '$scope', '$interval', function (Service, $scope, $interval) {
 
   $scope.clock = Date.now();
 
