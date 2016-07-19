@@ -9,7 +9,7 @@ app.factory(`Service`, [
     service.getLocation = (lat, lon) => {
       return $http({
         method: `GET`,
-        url: `http://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}`
+        url: `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}`
       })
       .then(response => {
         if (response.status !== 200) {
