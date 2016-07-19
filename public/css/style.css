@@ -72,6 +72,12 @@ html, body {
 #search-module {
   height: 8vh;
   overflow: scroll; }
+  #search-module input {
+    width: 100%;
+    border: 1px solid rgba(52, 73, 94, 0.9);
+    background: rgba(150, 150, 150, 0.4);
+    color: rgba(236, 240, 241, 0.9);
+    padding: 2px 5px; }
 
 #time-module {
   height: 20vh;

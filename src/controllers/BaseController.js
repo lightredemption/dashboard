@@ -1,4 +1,4 @@
-app.controller(`BaseController`, [`Service`, `$scope`, `$interval`, (Service, $scope, $interval) => {
+app.controller(`BaseController`, [`Service`, `$scope`, `$interval`, `$window`, (Service, $scope, $interval, $window) => {
 
   $scope.config = {
     name: `Cynthia Crescent`
@@ -19,7 +19,6 @@ app.controller(`BaseController`, [`Service`, `$scope`, `$interval`, (Service, $s
   Service
   .getNews()
   .then(results => {
-    console.log(results);
     $scope.news = results;
   })
   .catch(err => {
@@ -61,7 +60,6 @@ app.controller(`BaseController`, [`Service`, `$scope`, `$interval`, (Service, $s
         location: zip,
         unit: 'c',
         success: weather => {
-          console.log(weather);
           $scope.weather = weather;
           $scope.$apply();
         },
@@ -72,5 +70,11 @@ app.controller(`BaseController`, [`Service`, `$scope`, `$interval`, (Service, $s
     }
 
   });
+
+  $scope.search = (event, text) => {
+    if (event.which === 13) {
+      $window.open(`https://www.google.com/search?q=` + text, `_blank`);
+    }
+  };
 
 }]);

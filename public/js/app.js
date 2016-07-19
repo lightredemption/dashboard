@@ -50,7 +50,7 @@ app.factory('Service', ['$http', function ($http) {
   return service;
 }]);
 
-app.controller('BaseController', ['Service', '$scope', '$interval', function (Service, $scope, $interval) {
+app.controller('BaseController', ['Service', '$scope', '$interval', '$window', function (Service, $scope, $interval, $window) {
 
   $scope.config = {
     name: 'Cynthia Crescent'
@@ -66,7 +66,6 @@ app.controller('BaseController', ['Service', '$scope', '$interval', function (Se
   });
 
   Service.getNews().then(function (results) {
-    console.log(results);
     $scope.news = results;
   }).catch(function (err) {
     console.log(err);
@@ -104,7 +103,6 @@ app.controller('BaseController', ['Service', '$scope', '$interval', function (Se
         location: zip,
         unit: 'c',
         success: function success(weather) {
-          console.log(weather);
           $scope.weather = weather;
           $scope.$apply();
         },
@@ -114,4 +112,10 @@ app.controller('BaseController', ['Service', '$scope', '$interval', function (Se
       });
     };
   });
+
+  $scope.search = function (event, text) {
+    if (event.which === 13) {
+      $window.open('https://www.google.com/search?q=' + text, '_blank');
+    }
+  };
 }]);
