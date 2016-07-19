@@ -3,6 +3,10 @@
   .scroll {
     overflow: scroll;
     height: 30vh;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
     .track {
       margin-bottom: 1vh;
       .name {

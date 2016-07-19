@@ -102,6 +102,9 @@ html, body {
   #music-module .scroll {
     overflow: scroll;
     height: 30vh; }
+    #music-module .scroll a {
+      color: inherit;
+      text-decoration: none; }
     #music-module .scroll .track {
       margin-bottom: 1vh; }
       #music-module .scroll .track .name {
