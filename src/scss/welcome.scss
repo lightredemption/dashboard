@@ -1,6 +1,10 @@
 #welcome-module {
   height: 25vh;
   overflow: scroll;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
   div {
     text-align: center;
     img {
@@ -9,5 +13,5 @@
       width: auto;
     }
   }
-  
+
 }

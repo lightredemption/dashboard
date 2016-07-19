@@ -114,8 +114,9 @@ app.controller('BaseController', ['Service', '$scope', '$interval', '$window', f
   });
 
   $scope.search = function (event, text) {
-    if (event.which === 13) {
+    if (event.which === 13 && text) {
       $window.open('https://www.google.com/search?q=' + text, '_blank');
+      $scope.searchText = '';
     }
   };
 }]);
