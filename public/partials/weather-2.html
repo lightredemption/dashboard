@@ -1,14 +1,4 @@
-<div class="module">
-  <div class="inner-module">
-    <div ng-if="weather">
-      {{ weather.city }}, {{ weather.region }}
-      {{ weather.temp }}&deg;{{ weather.units.temp }}
-      {{ weather.currently }}
-      Humidity: {{ weather.humidity }}
-      Wind: {{ weather.wind.speed }}/{{ weather.units.speed }}
-      <img ng-src="{{ weather.image }}" alt="weather-image"/>
-      {{ clock | date:'HH.mm.ss'}}
-      {{ clock | date:'dd.MM.yyyy' }}
-    </div>
-  </div>
-</div>
+<h3>{{ weather.city }}, {{ weather.region }}</h3>
+<h4>{{ weather.temp }}&#8451; <br /> {{ weather.currently }}</h4>
+<h3>Forecast</h3>
+<h4>{{ weather.forecast[0].low }} - {{ weather.forecast[0].high }} &#8451;<br /> {{ weather.forecast[0].text }}</h4>

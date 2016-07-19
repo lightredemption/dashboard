@@ -1,5 +1,9 @@
 app.controller(`BaseController`, [`Service`, `$scope`, `$interval`, (Service, $scope, $interval) => {
 
+  $scope.config = {
+    name: `Cynthia Crescent`
+  };
+
   Service
   .getRecentTracks()
   .then(results => {
@@ -29,9 +33,20 @@ app.controller(`BaseController`, [`Service`, `$scope`, `$interval`, (Service, $s
   });
 
   $scope.clock = Date.now();
+  $scope.time = `Morning`;
 
   var tick = () => {
-    $scope.clock = Date.now();
+    $scope.clock = new Date();
+    let hour = new Date().getHours();
+    if (hour > 6 && hour <= 12) {
+      $scope.time = `Morning`;
+    }
+    if (hour > 12 && hour <= 18) {
+      $scope.time = `Afternoon`;
+    }
+    if (hour > 18 || hour <= 6) {
+      $scope.time = `Evening`;
+    }
   }
   tick();
   $interval(tick, 1000);

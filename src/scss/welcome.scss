@@ -1,4 +1,13 @@
 #welcome-module {
   height: 25vh;
   overflow: scroll;
+  div {
+    text-align: center;
+    img {
+      border-radius: 100%;
+      height: 20vh;
+      width: auto;
+    }
+  }
+  
 }

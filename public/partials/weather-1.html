@@ -1,9 +1,7 @@
-<div class="module">
-  <div class="inner-module">
-    <div ng-if="tracks">
-      <div ng-repeat="track in tracks">
-        {{ weather }}
-      </div>
-    </div>
-  </div>
-</div>
+
+<h3>Good {{ time }}</h3>
+<h4>{{ config.name }}</h4>
+<h3>Time</h3>
+<h4>{{ clock.getHours() }} : {{ clock.getMinutes() }} : {{ clock.getSeconds() }}</h4>
+<h3>Date:</h3>
+<h4>{{ clock | date:'dd : mm : yyyy' }}</h4>

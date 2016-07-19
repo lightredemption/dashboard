@@ -69,6 +69,10 @@ app.factory('Service', ['$http', function ($http) {
 
 app.controller('BaseController', ['Service', '$scope', '$interval', function (Service, $scope, $interval) {
 
+  $scope.config = {
+    name: 'Cynthia Crescent'
+  };
+
   Service.getRecentTracks().then(function (results) {
     $scope.tracks = results.track;
   }).catch(function (err) {
@@ -89,9 +93,20 @@ app.controller('BaseController', ['Service', '$scope', '$interval', function (Se
   });
 
   $scope.clock = Date.now();
+  $scope.time = 'Morning';
 
   var tick = function tick() {
-    $scope.clock = Date.now();
+    $scope.clock = new Date();
+    var hour = new Date().getHours();
+    if (hour > 6 && hour <= 12) {
+      $scope.time = 'Morning';
+    }
+    if (hour > 12 && hour <= 18) {
+      $scope.time = 'Afternoon';
+    }
+    if (hour > 18 || hour <= 6) {
+      $scope.time = 'Evening';
+    }
   };
   tick();
   $interval(tick, 1000);
