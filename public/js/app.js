@@ -11,7 +11,7 @@ app.factory('Service', ['$http', function ($http) {
   service.getLocation = function (lat, lon) {
     return $http({
       method: 'GET',
-      url: 'http://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lon
+      url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lon
     }).then(function (response) {
       if (response.status !== 200) {
         throw new Error('Failed to get location.');
