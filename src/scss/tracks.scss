@@ -1,3 +1,13 @@
 #music-module {
   height: 35vh;
+  .scroll {
+    overflow: scroll;
+    height: 30vh;
+    .track {
+      margin-bottom: 1vh;
+      .name {
+        font-style: italic;
+      }
+    }
+  }
 }

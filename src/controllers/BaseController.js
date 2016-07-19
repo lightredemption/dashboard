@@ -7,16 +7,10 @@ app.controller(`BaseController`, [`Service`, `$scope`, `$interval`, (Service, $s
   Service
   .getRecentTracks()
   .then(results => {
+    results.track.forEach(result => {
+      result.artist_name = result.artist['#text'];
+    })
     $scope.tracks = results.track;
-  })
-  .catch(err => {
-    console.log(err);
-  });
-
-  Service
-  .getAlbumChart()
-  .then(results => {
-    $scope.chart = results.album;
   })
   .catch(err => {
     console.log(err);

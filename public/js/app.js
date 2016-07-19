@@ -74,13 +74,10 @@ app.controller('BaseController', ['Service', '$scope', '$interval', function (Se
   };
 
   Service.getRecentTracks().then(function (results) {
+    results.track.forEach(function (result) {
+      result.artist_name = result.artist['#text'];
+    });
     $scope.tracks = results.track;
-  }).catch(function (err) {
-    console.log(err);
-  });
-
-  Service.getAlbumChart().then(function (results) {
-    $scope.chart = results.album;
   }).catch(function (err) {
     console.log(err);
   });

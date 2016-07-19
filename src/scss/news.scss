@@ -1,15 +1,18 @@
 #news-module {
   height: 50vh;
-  overflow: scroll;
-  a {
-    text-decoration: none;
-    color: inherit;
-    display: inline-block;
-    font-size: 12pt;
-    margin-bottom: 1.5vh;
-    font-style: italic;
-  }
-  .headline {
-    font-style: normal;
+  .scroll {
+    overflow: scroll;
+    height: 45vh;
+    a {
+      text-decoration: none;
+      color: inherit;
+      display: inline-block;
+      font-size: 12pt;
+      margin-bottom: 1.5vh;
+      font-style: italic;
+    }
+    .headline {
+      font-style: normal;
+    }
   }
 }

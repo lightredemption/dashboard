@@ -38,7 +38,7 @@ html, body {
   html section, body section {
     display: inline-block;
     height: 90vh;
-    overflow: scroll; }
+    overflow: hidden; }
   html .left-panel, body .left-panel {
     width: 24%;
     margin: .5%; }
@@ -54,17 +54,19 @@ html, body {
   overflow: scroll; }
 
 #news-module {
-  height: 50vh;
-  overflow: scroll; }
-  #news-module a {
-    text-decoration: none;
-    color: inherit;
-    display: inline-block;
-    font-size: 12pt;
-    margin-bottom: 1.5vh;
-    font-style: italic; }
-  #news-module .headline {
-    font-style: normal; }
+  height: 50vh; }
+  #news-module .scroll {
+    overflow: scroll;
+    height: 45vh; }
+    #news-module .scroll a {
+      text-decoration: none;
+      color: inherit;
+      display: inline-block;
+      font-size: 12pt;
+      margin-bottom: 1.5vh;
+      font-style: italic; }
+    #news-module .scroll .headline {
+      font-style: normal; }
 
 #search-module {
   height: 8vh;
@@ -72,6 +74,13 @@ html, body {
 
 #music-module {
   height: 35vh; }
+  #music-module .scroll {
+    overflow: scroll;
+    height: 30vh; }
+    #music-module .scroll .track {
+      margin-bottom: 1vh; }
+      #music-module .scroll .track .name {
+        font-style: italic; }
 
 #weather-1-module {
   height: 20vh;
