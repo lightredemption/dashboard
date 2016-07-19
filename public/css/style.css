@@ -6,6 +6,8 @@ html, body {
   height: 100%;
   color: rgba(236, 240, 241, 0.9);
   margin: 0; }
+  html ::-webkit-scrollbar, body ::-webkit-scrollbar {
+    display: none; }
   html .block, body .block {
     padding: 1em 1em 1em 1em;
     border-top: rgba(52, 73, 94, 0.9) 1px solid;
@@ -60,13 +62,12 @@ html, body {
     height: 45vh; }
     #news-module .scroll a {
       text-decoration: none;
-      color: inherit;
+      color: rgba(127, 140, 141, 0.9);
       display: inline-block;
       font-size: 12pt;
-      margin-bottom: 1.5vh;
-      font-style: italic; }
+      margin-bottom: 1.5vh; }
     #news-module .scroll .headline {
-      font-style: normal; }
+      color: rgba(236, 240, 241, 0.9); }
 
 #search-module {
   height: 8vh;
@@ -80,7 +81,7 @@ html, body {
     #music-module .scroll .track {
       margin-bottom: 1vh; }
       #music-module .scroll .track .name {
-        font-style: italic; }
+        color: rgba(127, 140, 141, 0.9); }
 
 #weather-1-module {
   height: 20vh;

@@ -5,14 +5,13 @@
     height: 45vh;
     a {
       text-decoration: none;
-      color: inherit;
+      color: rgba(127,140,141,0.9);
       display: inline-block;
       font-size: 12pt;
       margin-bottom: 1.5vh;
-      font-style: italic;
     }
     .headline {
-      font-style: normal;
+      color: rgba(236,240,241,0.9);
     }
   }
 }

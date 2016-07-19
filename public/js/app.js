@@ -4,12 +4,8 @@ var app = angular.module('dashboard', []);
 
 app.factory('Service', ['$http', function ($http) {
   var service = {};
-
-  var apiSteam = 'BF5F20D59B3A29772A03EDD9470780C5';
-  var apiWeather = 'e0d74cec0decd6cf340248d9468070f1';
   var apiFM = '6e945ef718dcf6eaabef5ec3e448f358';
   var apiNews = 'd59c3a96787a47fbac3c5883285a660e';
-  var idSteam = '76561198046827360';
   var userFM = 'cynthiacrescent';
 
   service.getLocation = function (lat, lon) {
@@ -35,19 +31,6 @@ app.factory('Service', ['$http', function ($http) {
       }
 
       return response.data.recenttracks;
-    });
-  };
-
-  service.getAlbumChart = function () {
-    return $http({
-      method: 'GET',
-      url: 'https://ws.audioscrobbler.com/2.0/?method=user.getweeklyalbumchart&user=' + userFM + '&api_key=' + apiFM + '&format=json'
-    }).then(function (response) {
-      if (response.status !== 200) {
-        throw new Error('Failed to get album chart.');
-      }
-
-      return response.data.weeklyalbumchart;
     });
   };
 

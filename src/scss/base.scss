@@ -1,4 +1,3 @@
-$cl-dark: #14181b;
 @import url(https://fonts.googleapis.com/css?family=Lato);
 
 html, body {
@@ -8,6 +7,9 @@ html, body {
   height: 100%;
   color: rgba(236,240,241,0.9);
   margin: 0;
+  ::-webkit-scrollbar {
+    display: none;
+  }
   .block {
     padding: 1em 1em 1em 1em;
     border-top: rgba(52,73,94,0.9) 1px solid;
