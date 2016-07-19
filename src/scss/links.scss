@@ -1,4 +1,21 @@
 #links-module {
   height: 50vh;
   overflow: scroll;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .link-group {
+    float: left;
+    width: 30%;
+    padding: 1vh 1% 1vh 1%;
+    h5 {
+      margin-top: 1vh;
+      margin-bottom: 1vh;
+      font-size: 12pt;
+      text-transform: lowercase;
+      letter-spacing: 0.3vw;
+      color: rgba(127,140,141,0.9);
+    }
+  }
 }
