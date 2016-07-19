@@ -73,6 +73,10 @@ html, body {
   height: 8vh;
   overflow: scroll; }
 
+#time-module {
+  height: 20vh;
+  overflow: scroll; }
+
 #music-module {
   height: 35vh; }
   #music-module .scroll {
@@ -83,11 +87,7 @@ html, body {
       #music-module .scroll .track .name {
         color: rgba(127, 140, 141, 0.9); }
 
-#weather-1-module {
-  height: 20vh;
-  overflow: scroll; }
-
-#weather-2-module {
+#weather-module {
   height: 20vh;
   overflow: scroll; }
 

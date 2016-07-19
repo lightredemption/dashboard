@@ -1,14 +1,14 @@
 <html ng-app="dashboard" lang="en-us">
 <head>
   <meta charset="utf-8" />
-  <link href="css/style.css" rel="stylesheet" />
-  <title>Dashboard</title>
+  <link href="public/css/style.css" rel="stylesheet" />
+  <title>Bonjour</title>
   <!-- Vendor libraries -->
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" crossorigin="anonymous"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
   <!-- Application Files -->
-  <script src="js/app.js"></script>
+  <script src="public/js/app.js"></script>
 </head>
 
 <body ng-controller="BaseController" class="pure-g">
@@ -19,11 +19,11 @@
 
     </div>
 
-    <div class="block" id="weather-1-module" ng-include="'../partials/time.html'">
+    <div class="block" id="time-module" ng-include="'../partials/time.html'">
 
     </div>
 
-    <div class="block" id="weather-2-module" ng-include="'../partials/weather.html'" ng-if="weather">
+    <div class="block" id="weather-module" ng-include="'../partials/weather.html'" ng-if="weather">
 
     </div>
 
