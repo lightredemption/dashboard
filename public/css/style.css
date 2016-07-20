@@ -85,8 +85,7 @@ html, body {
       color: rgba(236, 240, 241, 0.9); }
 
 #search-module {
-  height: 8vh;
-  overflow: scroll; }
+  height: 8vh; }
   #search-module input {
     width: 100%;
     border: 1px solid rgba(52, 73, 94, 0.9);
@@ -95,8 +94,7 @@ html, body {
     padding: 2px 5px; }
 
 #time-module {
-  height: 20vh;
-  overflow: scroll; }
+  height: 20vh; }
 
 #music-module {
   height: 35vh; }
@@ -112,12 +110,10 @@ html, body {
         color: rgba(127, 140, 141, 0.9); }
 
 #weather-module {
-  height: 20vh;
-  overflow: scroll; }
+  height: 20vh; }
 
 #welcome-module {
-  height: 25vh;
-  overflow: scroll; }
+  height: 25vh; }
   #welcome-module a {
     text-decoration: none;
     color: inherit; }
